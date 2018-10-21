@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]%
+{geometry}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{amssymb}
+\usepackage{fixltx2e}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\title{SIE 545: Fundamentals of Optimization \\Homework 3}
+\author{Martin Manuel Lopez \\lopez9@email.arizona.edu \\Systems and Industrial Engineering}
+\date{\today}
+\maketitle
+\section{BSS 3.1}   
+Which of the following functions are convex, concave, or neither? Why?\\ \\
+a.) $f(x_1,x_2) = 2x_1^2 - 4x_1x_2 - 8x_1 + 3x_2$\\\\
+\begin{align*}
+    &\frac{\partial f}{\partial x_1} = 4x_1 - 4x_2 -8\\ \\
+    &\frac{\partial f}{\partial x_2} = -4x_1 +3 \\ \\  
+        &H(x) = 
+        \begin{bmatrix}
+          \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} \\
+          \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} \\
+        \end{bmatrix} \\ \\
+    &H(x) = 
+        \begin{bmatrix}
+            4 & -4 \\
+            -4 & 0 \\
+        \end{bmatrix}
+\end{align*}\\
+
+Given the H(x) matrix is not Positive Semi-Definite then the function neither convex or concave. \\ \\
+
+b.) $f(x_1,x_2) = x_1 e^{-(x_1 + 3x_2)}$\\\\
+\begin{align*}
+    &\frac{\partial f}{\partial x_1} = (e^{-3x_2} - x_1e^{-3x_2})e^{-x_1}\\ \\
+    &\frac{\partial f}{\partial x_2} = -3x_1e^{-3x_2-x_1} \\ \\  
+        &H(x) = 
+        \begin{bmatrix}
+          \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} \\
+          \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} \\
+        \end{bmatrix} \\ \\
+    &H(x) = e^{-x_1-3x_2}
+        \begin{bmatrix}
+            (x_1 - 2) & 3(x_1-1) \\
+            3(x_1-1) & 9x_1 \\
+        \end{bmatrix}
+\end{align*}\\
+
+Given the $H(x)$ matrix is not Positive Semi-Definite then the function neither convex or concave because the $H(X)$ is dependent on $x_1$.\\
+
+c.) $f(x_1,x_2) = -x_1^2 -3x_2^2 + 4x_1x_2 + 10x_1 - 10x_2$\\\\
+\begin{align*}
+    &\frac{\partial f}{\partial x_1} = -2x_1 + 4x_2 + 10\\ \\
+    &\frac{\partial f}{\partial x_2} = -6x_2 + 4x_1 - 10 \\ \\  
+        &H(x) = 
+        \begin{bmatrix}
+          \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} \\
+          \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} \\
+        \end{bmatrix} \\ \\
+    &H(x) =
+        \begin{bmatrix}
+            -2 & 4 \\
+            4 & -6 \\
+        \end{bmatrix}\\ \\
+    &-H(x) =
+        \begin{bmatrix}
+            2 & -4 \\
+            -4 & 6 \\
+        \end{bmatrix}\\ \\
+    &det(H(x)) = 12-16 = -4 < 0\\ \\
+    &det(-H(x)) = 12 -16 = -4 < 0 \\ \\
+\end{align*}\\
+
+Given the $H(x)$ matrix is not Positive Semi-Definite then the function neither convex or concave. Evaluating $-H(x)$ we still determine that the negative of $H(x)$ is not PSD so it is not concave. The function is neither convex or concave.\\
+
+c.) $f(x_1,x_2,x_3) = 2x_1x_2 + 2x_1^2 + x_2^2 + 2x_3^2 -5x_1x_3$\\\\
+\begin{align*}
+    &\frac{\partial f}{\partial x_1} = 2x_2 + 4x_1 - 5x_3\\ \\
+    &\frac{\partial f}{\partial x_2} = 2x_1 + 2x_2 \\ \\ 
+    &\frac{\partial f}{\partial x_3} = 4x_3 - 5x_1 \\ \\
+    &H(x) = 
+        \begin{bmatrix}
+            4 & 2 & -5 \\
+            2 & 2 & 0 \\
+            -5 & 0 & 4 \\
+        \end{bmatrix}\\
+    & 2R_2 - R_1 = R_2 \\   
+    &H(x) = 
+        \begin{bmatrix}
+            4 & 2 & -5 \\
+            0 & 2 & 5 \\
+            -5 & 0 & 4 \\
+        \end{bmatrix}\\
+    &5R_1 + 4R_3 = R_3 \\
+    &H(x) = 
+        \begin{bmatrix}
+            4 & 2 & -5 \\
+            0 & 2 & 5 \\
+            0 & 10 & -9 \\
+        \end{bmatrix}\\
+    &\text{We take the following matrix based on Gauss-Jordan method:} 
+    &H(x) =
+        \begin{bmatrix}
+            2 & 5 \\
+            10 & -9 \\
+        \end{bmatrix}\\ \\
+    &(2 * -9) -(10 *5) = -68 < 0\\ \\
+        &-H(x) =
+        \begin{bmatrix}
+            -2 & -5 \\
+            -10 & 9 \\
+        \end{bmatrix}\\ \\
+    &(-2 * 9) -(-10 *-5) = -68 < 0\\
+\end{align*}\\
+
+Given the $H(x)$ matrix is not Positive Semi-Definite then the function neither convex or concave.The $-H(x)$ is not PSD and thus it is not concave. \\ \\
+\section{BSS 3.10} 
+Let h: $\R^n$ \longrightarrow $\R$ \text{be a concave function, and let} g: $\R$ \longrightarrow $\R$ \text{be a non-decreasing convex function. Consider composite function} f: $\R^n$ \longrightarrow $\R$ \text{defined by } $f(x) = g[h(x)]$. \text{Show that $f$ is convex.}\\\\
+\text{Given } $f$: S \longrightarrow $\R$ \text{, where S }\subseteq $\R^n$ \text{ is a non empty convex set $f$ is convex on S if 2 points $(x_1, x_2)$.} 
+    \begin{align*}
+        
+    \end{align*}
+\end{document}
