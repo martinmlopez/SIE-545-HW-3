@@ -168,6 +168,32 @@ Since $f$ is convex and $f(x) = g[h(x)]$ , $f$ is evaluated at any convex combin
 $f(lambda g[h(x_1)] + (1-\lambda) g[h(x_2)]) \leq \lambda f(g[h(x_1)]) + (1-\lambda) f(g[h(x_2)])$\\ 
 \Leftrightarrow \\ 
 $f(x) = g[(\lambda h(x_1) + (1-\lambda) h(x_2) \leq \lambda g[h(x_1)] + (1-\lambda) g[h(x_2)]$\\ 
-Since h: $\R^n$ \longrightarrow \R \text{and g is non-decreasing convex function we have proved that }$f(x) = g[h(x)]$ \text{is a convex as well.}
+Since h: $\R^n$ \longrightarrow \R \text{and g is non-decreasing convex function we have proved that }$f(x) = g[h(x)]$ \text{is a convex as well.}\\
 
+\section{BSS 3.11} 
+Let g: $\R^n$ \longrightarrow $\R$ \text{ be a convex function, and let $f$ be defined by } f(x) = \frac{1}{g(x)}. \text{Show that $f$ is convex over } S = [x: g(x) > 0]. \text{State symmetric result interchanging the convex and concave functions.}\\
+
+    \begin{align*}
+        &\forall x_1, x_2 \in \text{S and } \lambda \in (0,1)\\ \\
+        &f(\lambda x_1 + (1-\lamda) x_2) \leq \lambda f(x_1) + (1-\lambda) x_2\\ \\ 
+        &\text{Based on the definition $f(x)$ is convex}\\ \\
+        &\Leftrightarrow\\
+        &f(\lambda x_1 + (1-\lambda)x_2) = \frac{1}{g(\lambda x_1 + (1-\lambda) x_2)}\\
+        &\lambda f(x_1) + (1-\lambda) f(x_2) = \frac{\lambda}{g(x_1)} + \frac{(1-\lambda)}{g(x_2)}\\
+        &\Leftrightarrow\\
+        &\frac{\lambda}{g(x_1)} + \frac{1-\lambda}{g(x_2)} - \frac{1}{g(\lambda x_1 + (1-\lambda) x_2)} \geq 0 \\ \\
+        &\text{We see that } g(x) \text{is concave} \\
+        &\Leftrightarrow\\
+        &g(\lambda x_1 + ( 1-\lambda)x_2) \geq \lambda g(x_1) + (1-\lambda) g(x_2) \\ 
+        &\Rightarrow\\
+        &\frac{1}{g(\lambda x_1 + (1-\lambda) x_2} \leq \frac{1}{\lambda g(x_1) + (1-\lambda) g(x_2)}\\
+        &\Rightarrow\\
+        &0 \geq \frac{\lambda}{g(x_1)} + \frac{1-\lambda}{g(x_2)} - \frac{1}{g(\lambda x_1 + (1-\lambda) x_2)}\\
+        &\Rightarrow\\
+        &\frac{\lambda g(x_1) (\lambda g(x_1) + (1-\lambda) g(x_2) + (1-\lambda) g(x_1) (\lambda g(x_1) + (1-\lambda) g(x_2)) - g(x_1)g(x_2))}{g(x_1)g(x_2) (\lambda g(x_1) + (1-\lambda) g(x_2))}\\
+        &\Rightarrow\\
+        &\frac{\lambda (1-\lambda)(g(x_1)-g(x_2))^2}{g(x_1)g(x_2)(\lambda g(x_1) + (1-\lambda) g(x_2))} \geq 0\\
+        &\forall x_1, x_2 \in S, \forall \lambda \in (0,1)\\
+        &\text{If g is concave over S, then } \frac{-1}{g} \text{is convex over S and } f(x) = \frac{1}{g(x)} \text{is convex}.//
+    \end{align*}\\
 \end{document}
