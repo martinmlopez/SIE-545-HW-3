@@ -169,7 +169,6 @@ $f(lambda g[h(x_1)] + (1-\lambda) g[h(x_2)]) \leq \lambda f(g[h(x_1)]) + (1-\lam
 \Leftrightarrow \\ 
 $f(x) = g[(\lambda h(x_1) + (1-\lambda) h(x_2) \leq \lambda g[h(x_1)] + (1-\lambda) g[h(x_2)]$\\ 
 Since h: $\R^n$ \longrightarrow \R \text{and g is non-decreasing convex function we have proved that }$f(x) = g[h(x)]$ \text{is a convex as well.}\\
-
 \section{BSS 3.11} 
 Let g: $\R^n$ \longrightarrow $\R$ \text{ be a convex function, and let $f$ be defined by } f(x) = \frac{1}{g(x)}. \text{Show that $f$ is convex over } S = [x: g(x) > 0]. \text{State symmetric result interchanging the convex and concave functions.}\\
 
@@ -194,6 +193,32 @@ Let g: $\R^n$ \longrightarrow $\R$ \text{ be a convex function, and let $f$ be d
         &\Rightarrow\\
         &\frac{\lambda (1-\lambda)(g(x_1)-g(x_2))^2}{g(x_1)g(x_2)(\lambda g(x_1) + (1-\lambda) g(x_2))} \geq 0\\
         &\forall x_1, x_2 \in S, \forall \lambda \in (0,1)\\
-        &\text{If g is concave over S, then } \frac{-1}{g} \text{is convex over S and } f(x) = \frac{1}{g(x)} \text{is convex}.//
+        &\text{If g is concave over S, then } \frac{-1}{g} \text{is convex over S and } f(x) = \frac{1}{g(x)} \text{is convex}.
     \end{align*}\\
+\section{BSS 3.18}
+A function $f: \R^n \longrightarrow \R$ calleda gauge function if it satisfies the following condition: 
+    \begin{align*}
+        &f(\lambda x) = \lambda f(x) \quad\forall x \in \R , \forall \lambda \geq 0 \\
+    \end{align*}
+Further, a gauge function is said to be sub-additive of it satisfies the following inequality:
+    \begin{align*}
+        &f(x) + f(y) \geq f(x+y) \quad \forall x,y \in \R^n \\ 
+    \end{align*}
+Prove that sub-additivity is equivalent to convexity of the following guage functions: 
+    \begin{align*}
+        &f(\lambda x) = \lambda f(x) \quad \forall x \in \R^n, \forall\lambda \geq 0\\
+    \end{align*}
+Relaxing the $f(\lambda x)$ gauge function we assume convexity given two points $x_1, x_2$ evaluated at any convex combination. 
+    \begin{align*}
+        &f(\lambda x_1 + (1-\lambda) x_2) \leq \lambda f(x_1) + (1-\lambda) f(x_2) \quad \forall x_1, x_2 \in S, \lambda \in (0,1) \\ 
+        &\text{Let } x_2 = y \text{and } x_1 = x \\ 
+        &\Leftrightarrow\\
+        &f(\lambda x + (1-\lambda) y) \leq \lambda f(x) + (1-\lambda) f(y) \quad \forall x,y \in S, \lambda \in (0,1)\\
+        &\Leftrightarrow\\
+        &f(x+y) \leq f(\lambda x + (1-\lambda) y) \leq \lambda f(x) + (1-\lambda) f(y) \leq f(x) + f(y) \quad \forall x,y \in S, \lambda \in (0,1)\\
+        &\Leftrightarrow\\
+        &f(x+y) \leq f(x) + f(y) \quad \forall x,y \in \R^n
+    \end{align*}
+Thus sub-additivity is equivalent to convex gauge functions. 
+
 \end{document}
