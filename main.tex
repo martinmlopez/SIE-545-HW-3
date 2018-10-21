@@ -152,9 +152,22 @@ c.) $f(x_1,x_2,x_3) = 2x_1x_2 + 2x_1^2 + x_2^2 + 2x_3^2 -5x_1x_3$\\\\
 
 Given the $H(x)$ matrix is not Positive Semi-Definite then the function neither convex or concave.The $-H(x)$ is not PSD and thus it is not concave. \\ \\
 \section{BSS 3.10} 
-Let h: $\R^n$ \longrightarrow $\R$ \text{be a concave function, and let} g: $\R$ \longrightarrow $\R$ \text{be a non-decreasing convex function. Consider composite function} f: $\R^n$ \longrightarrow $\R$ \text{defined by } $f(x) = g[h(x)]$. \text{Show that $f$ is convex.}\\\\
-\text{Given } $f$: S \longrightarrow $\R$ \text{, where S }\subseteq $\R^n$ \text{ is a non empty convex set $f$ is convex on S if 2 points $(x_1, x_2)$.} 
-    \begin{align*}
-        
-    \end{align*}
+Let h: $\R^n$ \longrightarrow $\R$ \text{be a concave function, and let} g: $\R$ \longrightarrow $\R$ \text{be a non-decreasing convex function. Consider composite function} f: $\R^n$ \longrightarrow \R \text{defined by } $f(x) = g[h(x)]$. \text{Show that $f$ is convex.}\\\\
+\text{Given } $f$: S \longrightarrow $\R$ \text{, where S}\subseteq $\R^n$ \text{ is a non empty convex set $f$ is convex on S if 2 points $(x_1, x_2)$.}\\
+        $f(\lambda x_1 + (1-\lambda) x_2) \leq \lambda f(x_1) + (1-\lambda) f(x_2)$\\
+        let $\lambda$ = 1/2 \\ 
+        $f(1/2 x_1 + 1/2 x_2) \leq 1/2 f(x_1) + 1/2 (fx_2)$\\
+        Thus\\
+        $f(\lambda x_1 + (1-\lambda) x_2) \leq \lambda f(x_1) + (1-\lambda) f(x_2) \forall x_1, x_2 \in S, \forall \lambda \in (0,1). $ \\ 
+
+Since h is a convex function thus we let $x_1 and x_2$ in $h(x)$ be:\\
+$h(lambda x_1 + (1-\lambda) x_2) \leq \lambda h(x_1) + (1-\lambda) h(x_2)$\\ 
+g : is a non-decreasing convex function thus 2 point $g(x_1)$ and $g(x_2)$ we show the convexity such that we have a convex combination:\\\\
+$g(\lambda x_1 + (1-\lambda)x_2) \leq \lambda g(x_1) + (1-\lambda) g(x_2)$\\ \\
+Since $f$ is convex and $f(x) = g[h(x)]$ , $f$ is evaluated at any convex combination of 2 points and shall be no longer than the same convex combination of $f(g[h(x_1)])$ and $f(g[h(x_2)])$. \\ \\ 
+$f(lambda g[h(x_1)] + (1-\lambda) g[h(x_2)]) \leq \lambda f(g[h(x_1)]) + (1-\lambda) f(g[h(x_2)])$\\ 
+\Leftrightarrow \\ 
+$f(x) = g[(\lambda h(x_1) + (1-\lambda) h(x_2) \leq \lambda g[h(x_1)] + (1-\lambda) g[h(x_2)]$\\ 
+Since h: $\R^n$ \longrightarrow \R \text{and g is non-decreasing convex function we have proved that }$f(x) = g[h(x)]$ \text{is a convex as well.}
+
 \end{document}
