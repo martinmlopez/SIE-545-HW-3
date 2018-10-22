@@ -308,4 +308,58 @@ We see that the first order Taylor Series expansion is showed in the linear appr
         & det(-H(1,1)) < 0 \\
     \end{align*}
 The quadratic approximation is neither convex or concave as H(1,1) is not PSD and -H(1,1) is also not PSD the function neither convex or concave.
+\section{BSS 3.45} 
+Consider the following problem:
+    \begin{align*}
+        &\min (x_1 -4)^2 + (x_2 -6 )^2\\
+        &s.t.\\
+        &x_2 \geq x_1^2
+        &x_2 \leq 4
+    \end{align*}
+Write a necessary condition for optimally and verify that it is satisfied by the point (2,4). Is this the optimal point? Why?\\
+
+Given the definition and theorem we define $f$ as a non-empty convex set in $\R^n$ as $f:
+\R^n$ \rightarrow $\R$.\text{ The point } \bar x = (2,4) \in \text{S is assumed to be an optimal solution. Thus there is a subgradiant }$\xi$ at \bar x such that $\xi^t (x-\bar x) \geq 0 \quad \forall x \in S$.
+    \begin{align*}
+        &\text{We note that the feasible region is convex:}\\
+        &x_1^2 - x_2 \leq 0 \\ 
+        &x_2 \leq 4\\
+        &\Leftrightarrow \\ 
+        &x_1^2 \leq x_2 \leq 4\\
+    \end{align*}
+Since the problem represents a convex set then we can generalize our definition:\\
+$f(x) \geq f(\bar x) + \xi^t (x-\bar x) \geq 0 \quad \forall x \in S$.\\
+    \begin{align*}
+        &f(x) \geq f(\bar x) + \xi^t (x-\bar x) \geq 0 \quad \forall x \in S\\
+        &\Leftrightarrow\\
+        &f(x) \geq f(\bar x) + \nabla f(\bar x)^t (x-\bar x) \geq 0 \quad \forall x \in S\\
+    \end{align*}
+Here we have the necessary and sufficient condition that $f(x)$ is convex as  $f(x)$ is differentiable. Given the point $\bar x = (2,4)^t$ we have the following:\\
+    \begin{align*}
+        &f(x) \geq f(\bar x) + \nabla f(\bar x)^t (x-\bar x) \geq 0 \\
+        &\frac{\partial f}{\partial x_1} = 2x_1 -8\\
+        &\frac{\partial f}{\partial x_2} = 2x_2 -12 \\
+        &f(x) \geq f(2,4) + \nabla f(2,4)^t (x-\barx) \geq 0\\
+        &\nabla f(\bar x) ^t (x-\bar x) = 
+            \begin{bmatrix} 
+                2x_1 -8 \\
+                2x_2 -12
+            \end{bmatrix}
+            \begin{bmatrix} 
+                x_1 -2 \\
+                x_2 -4
+            \end{bmatrix}
+            =
+            \begin{bmatrix} 
+                -4 ,
+                -4
+            \end{bmatrix}
+            \begin{bmatrix} 
+                x_1 -2 \\
+                x_2 -4
+            \end{bmatrix}
+            =
+            -4x_1 - 4x_2 + 24 \geq 0 \\
+    \end{align*}
+This shows that the point (2,4) is an optimal solution to the objective function as $f(x)$ is differentiable, continuous, and part of a non-empty convex set. 
 \end{document}
