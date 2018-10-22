@@ -262,5 +262,50 @@ c.) Find collection of subgradients of $\theta$ at (2,3)\\
          &\xi_1^2 + \xi_2^2 \leq 4\\
     \end{align*}
 \section{BSS 3.37}
-
+Let $f: \R^n \longrightarrow \R$ be a differentiable function. The linear approximation of the $f$ at a given point \bar x is given by:\\ 
+    \begin{align*}
+        &f(\bar x) + \nabla f(\bar x)^t (x-\bar x)\\ 
+    \end{align*}
+If $f$ is twice differentiable at \bar x, the quadratic approximation of $f$ at \bar x is given by:\\
+    \begin{align*}
+        &f(\bar x) + \nabla f(\bar x)^t (x-\bar x) + 1/2 (x-\bar x)^t H(\bar x) (x-\bar x)\\ 
+    \end{align*}
+Let $f(x_1, x_2) = e^{2x_1^2 - x_2^2} - 3x_1 + 5x_2$ given the linear and quadratic approximations of $f$ at (1,1). Are these approximations convex, concave, or neither? Why?\\ 
+    \begin{align*}
+        &\text{Linear Approximation of }f(1,1): \\
+        &f(\bar x) + \nabla f(\bar x)^t (x-\bar x)\\
+        &\Leftrightarrow\\
+        &\frac{\partial f}{\partial x_1 } = 4x_1 e^{2x_1^2 -x_2^2} - 3\\
+        &\frac{\partial f}{\partial x_2 } = 5 -2e^{2x_1^2 -x_2^2}\\
+        &\Leftrightarrow\\
+        &f(\bar x) + \nabla f(\bar x)^t (x-\bar x) = (2+e)+ (x_1 -1) (4e -3) + (x_2 -1 ) (5-2e)\\
+    \end{align*}
+We see that the first order Taylor Series expansion is showed in the linear approximation and see that the function is both convex and concave because it is an affine combination.\\
+    \begin{align*}
+        &\text{Quadritic Approximation of } f(1,1): \\ 
+        &f(\bar x) + \nabla f(\bar x)^t (x-\bar x) + 1/2 (x-\bar x)^t H(\bar x) (x-\bar x)\\ 
+        &H(x) = 
+        \begin{bmatrix}
+          \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} \\
+          \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} \\
+        \end{bmatrix} \\
+        &H(x) = 2e^{2x_1^2 -x_2^2}
+        \begin{bmatrix}
+            8x_1 + 2 & -4x_1x_2\\
+            -4x_1x_2 & 2x_2^2-1\\
+        \end{bmatrix} \\ \\
+         &H(1,1) = 2e
+        \begin{bmatrix}
+            10 & -4\\
+            -4 & 1\\
+        \end{bmatrix} \\ \\
+         &-H(1,1) = 2e
+        \begin{bmatrix}
+            -10 & 4\\
+            4 & -1\\
+        \end{bmatrix} \\ \\
+        & det(H(1,1)) < 0\\
+        & det(-H(1,1)) < 0 \\
+    \end{align*}
+The quadratic approximation is neither convex or concave as H(1,1) is not PSD and -H(1,1) is also not PSD the function neither convex or concave.
 \end{document}
