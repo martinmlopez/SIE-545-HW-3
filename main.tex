@@ -220,5 +220,47 @@ Relaxing the $f(\lambda x)$ gauge function we assume convexity given two points 
         &f(x+y) \leq f(x) + f(y) \quad \forall x,y \in \R^n
     \end{align*}
 Thus sub-additivity is equivalent to convex gauge functions. 
+\section{BSS 3.30}
+Consider the function $\theta$ defined by the following optimization problem: 
+    \begin{align*}
+        &\thata (u_1, u_2) = \min x_2(2-u_1) + x_2 (3-u_2)
+        &s.t.
+        &x_1^2 + x_2^2 \leq 4
+    \end{align*}
+a.) Show $\theta$ is concave
+    \begin{align*}
+        &\theta:\R^n \longrightarrow \R \text{and is a non empty convex set in } \R^n. \Theta \text{is continuous and our assumption is the } \forall x \in S \text{is compact.}\\ 
+        &\theta (\lambda u_1 + (1-\lambda) u_2) \geq \lambda \theta(u_1) + (1-\lambda) \theta(u_2) \quad \forall u \in S, \lambda \in (0,1)\\
+    \end{align*}\\
+b.) $\theta$ (2,3)\\
+    \begin{align*}
+        &\theta (2,3) = \min x_1(2-u_1) + x_2 (3 - u_2) 
+        &\Leftrightarrow\\
+        &\theta (2,3) = \min x_1(2-2) + x_2 (3 - 3)\\
+        &\theta (2,3) = 0 \\
+    \end{align*}
+c.) Find collection of subgradients of $\theta$ at (2,3)\\ 
+    \begin{align*}
+         &\theta (\lambda u_1 + (1-\lambda) u_2) \geq \lambda \theta(u_1) + (1-\lambda) \theta(u_2) \\ 
+         &\Leftrightarrow\\
+         &\theta (u) \leq \theta (\bar u) + \xi^T (u -\bar u) \quad \text{where } \bar u = (2,3)\\
+         &\Leftrightarrow\\
+         &\theta(u) = \min x_1 (-u_1 +2) + x_2 (-u_2 + 3) \\ 
+         &\Leftrightarrow\\
+         & \min -x_1(u_1 -2) -x_2 (u_2 -3) 
+         &s.t.\\
+         &x_1^2 + x_2^2 \leq 4\\
+         &\Leftrightarrow\\
+         & \min -\xi_1(u_1 -2) -\xi_2 (u_2 -3) 
+         &s.t.\\
+         &\xi_1^2 + \xi_2^2 \leq 4\\
+         &\Leftrightarrow\\
+         & \min -\xi_1(u_1 -2) -\xi_2 (u_2 -3) \leq \min \xi_1(u_1 -2) + \xi_2 (u_2 -3)\\
+         &\Leftrightarrow\\
+         &\min \xi_1(u_1 -2) + \xi_2 (u_2 -3)\\
+         &s.t.\\
+         &\xi_1^2 + \xi_2^2 \leq 4\\
+    \end{align*}
+\section{BSS 3.37}
 
 \end{document}
